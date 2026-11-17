@@ -7,7 +7,7 @@ A simulation and test suite demonstrating reliable binary frame parsing and inte
 * **What was implemented**:
   * A binary framing protocol (`frame.c`) that encodes floating-point payloads with sync headers, message IDs, and integrity checksums.
   * A byte-by-byte state-machine parser (`parser.c`) designed to resynchronize automatically after dropped or corrupted bytes.
-  * A noisy physical channel simulator (`channel.c`) injecting bit flips, byte drops, and burst errors.
+  * A noisy physical channel simulator (`channel.c`) injecting bit flips, byte drops, and bit flips, dropped bytes, and inserted garbage bytes.
 * **What was tested & compared**:
   * Streamed 100,000 floating-point frames across a corrupted channel to verify synchronization recovery and data integrity.
   * Compared **CRC-16** (`test_robust`) against a weak **8-bit XOR checksum** (`test_robust_xor`, compiled with `-DCHECK_XOR`), demonstrating that CRC-16 rejects all corrupted frames (0 false positives) while 8-bit XOR allows silent data corruption through.
@@ -32,3 +32,4 @@ Requires `gcc` (C11, `-pthread`) and `make`.
 make            # Build all unit tests and demo executables
 make run        # Run all tests and demos in order
 make clean      # Remove compiled binaries
+```

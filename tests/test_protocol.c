@@ -7,9 +7,11 @@
 static int failures = 0;
 
 // macro function for implementing a condition with a print respectively
+//  for preprocessor to nex line as well
+// printing the exacrt line which holds the failor 
 #define CHECK(cond, msg) do { \
-    if (cond) { printf("  PASS  %s\n", msg); } \  // \ for preprocessor to nex line as well
-    else      { printf("  FAIL  %s  (line %d)\n", msg, __LINE__); failures++; } \ // printing the exacrt line which holds the failor 
+    if (cond) { printf("  PASS  %s\n", msg); } \  
+    else      { printf("  FAIL  %s  (line %d)\n", msg, __LINE__); failures++; } \ 
 } while (0)
 
 // simulating a comunication line, sending to parser feed and saves the last recieved frame as last

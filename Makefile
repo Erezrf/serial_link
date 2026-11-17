@@ -27,9 +27,8 @@ run: all
 	./test_robust
 	-./test_robust_xor          # the leading '-' : this one is EXPECTED to fail (exit 1)
 	./demo_uart
-	python3 sim/bus_sim.py
 
 clean:
-	rm -f test_protocol test_robust test_robust_xor test_ring_buffer demo_uart bus_timeline.png
+	rm -f test_protocol test_robust test_robust_xor test_ring_buffer demo_uart 
 
 .PHONY: all run clean

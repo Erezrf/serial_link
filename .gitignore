@@ -2,7 +2,7 @@ test_protocol
 test_robust
 test_robust_xor
 test_ring_buffer
-demo_port
+demo_uart
 *.o
 # check programs: keep the .c files, ignore the executables
 try/*
